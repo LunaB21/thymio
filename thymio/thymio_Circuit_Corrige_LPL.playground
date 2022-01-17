@@ -1,0 +1,17 @@
+﻿<!DOCTYPE aseba-playground>
+<aseba-playground>
+
+	<description lang="fr">
+	  <p></p>
+	</description>
+
+
+	<color name="white" r="1.0" g="1.0" b="1.0" />
+	<world w="240" h="240" color="white" groundTexture="thymio_Corrige.png" />
+	<robot type="thymio2" x="35" y="20" port="33333" angle="0.00" name="Thymio 0" />
+	
+
+	
+	<process command=":asebamassloader --once thymio-default-behaviours.aesl tcp:localhost;33333" />
+	<process command=":asebamassloader --once thymio-default-behaviours.aesl tcp:localhost;33334" />
+</aseba-playground>

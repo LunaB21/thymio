@@ -1,0 +1,77 @@
+<!DOCTYPE aesl-source>
+<network>
+
+
+<!--list of global events-->
+
+
+<!--list of constants-->
+
+
+<!--show keywords state-->
+<keywords flag="true"/>
+
+
+<!--node thymio-II-->
+<node nodeId="1" name="thymio-II">var i=0
+var lum[]=[8,2,4,6,8,2,4,6,8,4,6,4,8,2,8,0]		#tableau de 15 cases dont l'index débute à 0
+var debut_enregt=0
+var debut_lect=0
+call sound.system(-1)
+
+sub allumer_avant
+	call leds.circle(32, 0, 0, 0, 0, 0, 0, 0)
+
+sub allumer_droite
+	call leds.circle(0, 0, 32, 0, 0, 0, 0, 0)
+
+sub allumer_arriere
+	call leds.circle(0, 0, 0, 0, 32, 0, 0, 0)
+
+sub allumer_gauche
+	call leds.circle(0, 0, 0, 0, 0, 0, 32, 0)
+	
+sub etteindre
+	call leds.circle(0, 0, 0, 0, 0, 0, 0, 0)
+
+	
+onevent button.center
+
+	if button.center==1   then
+				i=0
+				timer.period[0] =500				
+	end
+				
+			
+onevent timer0
+	if 	lum[i]==8 then
+		callsub  allumer_avant
+		
+	elseif 	lum[i]==2 then
+		callsub  allumer_arriere
+	
+
+	elseif 	lum[i]==6 then
+		callsub  allumer_droite
+	
+
+	elseif 	lum[i]==4 then
+		callsub  allumer_gauche
+	end
+
+	i=i+1
+
+	if  i>=16 then
+	callsub etteindre
+	i=0
+	debut_enregt=0
+	debut_lect=0
+	timer.period[0]=0	
+	end
+	
+	
+	
+	</node>
+
+
+</network>

@@ -1,0 +1,30 @@
+<!DOCTYPE aesl-source>
+<network>
+
+
+<!--list of global events-->
+
+
+<!--list of constants-->
+
+
+<!--show keywords state-->
+<keywords flag="true"/>
+
+
+<!--node thymio-II-->
+<node nodeId="1" name="thymio-II">call leds.top(0,0,0) # Eteindre les Led du dessus au chargement du programme
+call sound.system(-1) # coupure des sons pour plus de calme dans la classe!
+onevent buttons # Exécuter le code ci-dessous 20 fois par seconde
+when button.forward == 1 do
+call leds.top(0,0,32) # fonction gestion des leds du dessus(R,G,B) 
+end # 32=intensité maximale
+when button.backward == 1 do
+call leds.top(0,32,0)
+end
+when button.center == 1 do
+call leds.top(0,0,0) 
+end </node>
+
+
+</network>

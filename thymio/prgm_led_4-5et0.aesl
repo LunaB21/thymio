@@ -1,0 +1,44 @@
+<!DOCTYPE aesl-source>
+<network>
+
+
+<!--list of global events-->
+
+
+<!--list of constants-->
+
+
+<!--show keywords state-->
+<keywords flag="true"/>
+
+
+<!--node thymio-II-->
+<node nodeId="1" name="thymio-II">var B=0 # déclaration d'un variable de type Entier qui vaut 0
+call leds.top(0,0,0) # Etteindre les Led du dessus au chargement du programme
+call sound.system(-1) # coupure des sons pour plus de calme dans la classe!
+onevent buttons # Exécuter le code ci-dessous 20 fois par seconde
+when button.forward == 1 do
+B=B+1 # incrémentation de B
+end 
+if B == 1 then # test de l'état de la variable B
+call leds.top(32,0,0)
+end
+if B == 2 then
+call leds.top(0,32,0)
+end
+if B == 3 then
+call leds.top(0,0,32)
+end
+if B == 4 then
+call leds.top(21,45,0)
+end
+if B == 5 then
+call leds.top(0,55,21)
+end
+if  B == 6 then
+call leds.top(0,0,0)
+end
+</node>
+
+
+</network>

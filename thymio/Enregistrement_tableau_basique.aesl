@@ -1,0 +1,28 @@
+<!DOCTYPE aesl-source>
+<network>
+
+
+<!--list of global events-->
+
+
+<!--list of constants-->
+
+
+<!--show keywords state-->
+<keywords flag="true"/>
+
+
+<!--node thymio-II-->
+<node nodeId="1" name="thymio-II">var i=0
+var tab[6] =[0,0,0,0,0,0]
+
+onevent buttons
+when button.forward==1 do
+tab[i]=1
+i=i+1	
+end
+
+#Attention: il faut gérer la limite sinon il y a erreur</node>
+
+
+</network>
